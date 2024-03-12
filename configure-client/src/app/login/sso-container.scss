@@ -1,0 +1,88 @@
+/*
+ * Copyright (c) 1997-2022 Nastel Technologies, Inc. All Rights Reserved.
+ * 
+ * This software is the confidential and proprietary information of Nastel
+ * Technologies, Inc. ("Confidential Information").  You shall not disclose
+ * such Confidential Information and shall use it only in accordance with
+ * the terms of the license agreement you entered into with Nastel
+ * Technologies.
+ * 
+ * NASTEL MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+ * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+ * PURPOSE, OR NON-INFRINGEMENT. NASTEL SHALL NOT BE LIABLE FOR ANY DAMAGES
+ * SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING
+ * THIS SOFTWARE OR ITS DERIVATIVES.
+ * 
+ * CopyrightVersion 1.0
+ */
+
+@import "../shared/styles/_variables.scss";
+
+.form-box-container {
+    .form-box {
+        .sso-wrapper {
+
+            .form-divider {
+                margin: 10px 65px;
+                display: flex;
+                -webkit-box-align: center;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .form-divider::before,
+            .form-divider::after {
+                content: "";
+                border-top: 0.1rem solid rgb(227, 229, 231);
+                -webkit-box-flex: 1;
+                flex-grow: 1;
+            }
+
+            .sso-container {
+                margin: 0 auto;
+                flex-direction: column;
+                overflow: hidden auto;
+                max-height: 200px;
+
+                button {
+                    padding: 0;
+
+                    &:not(:last-of-type) {
+                        margin-bottom: 0;
+                    }
+
+                    .main-holder {
+                        display: flex;
+                        height: 40px;
+                        align-items: center;
+                        position: relative;
+                        padding-left: 40px;
+
+                        .l-side {
+                            .sso-icon-fa {
+                                max-height: 20px;
+                                position: absolute;
+                                left: 12px;
+                                top: 13px;
+                            }
+
+                            .sso-icon-img {
+                                max-height: 20px;
+                                position: absolute;
+                                left: 10px;
+                                top: 10px;
+                            }
+                        }
+
+                        .r-side {
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

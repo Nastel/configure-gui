@@ -1,0 +1,88 @@
+<div class="form-box-container">
+	<div class="form-box">
+
+		<div class="logo-div">
+			<img src="/assets/resources/img/logo-meshiq_fordark_background_transparent.png" class="company-logo">
+		</div>
+
+		<div class="heading">Please provide your credentials</div>
+
+		<form (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+			<div class="form-input-field" [class]="{ 'has-error': f.submitted && !username.valid }">
+				<label for="username">Login ID</label>
+				<i class="input-icon fa fa-user"></i>
+				<input id="username" type="text" class="form-control" name="username" [(ngModel)]="model.username"
+					#username="ngModel" placeholder="Login ID" required autofocus="autofocus" />
+			</div>
+            @if (f.submitted && !username.valid) {
+                <div class="help-block">Username is required</div>
+            }
+
+			<div class="form-input-field no-margin-bottom" [class]="{ 'has-error': f.submitted && !password.valid }">
+				<label for="password">Password</label>
+				<i class="input-icon fa fa-key"></i>
+				<input id="password" type="password" class="form-control" name="password" [(ngModel)]="model.password"
+					#password="ngModel" placeholder="Password" />
+			</div>
+            @if ("f.submitted && !password.valid") {
+                <div class="help-block">Password is required</div>
+            }
+
+			<div class="form-group no-margin-bottom">
+				<button class="btn-submit" name="submit" [disabled]="loginService.submitButtonDisabled">
+                    @if (!loginService.submitButtonDisabled) {
+                        <span>
+                            Login
+                        </span>
+                    }
+                    @if (loginService.submitButtonDisabled) {
+                        <span>
+                            <i class="fa fa-spinner fa-spin"></i>
+                        </span>
+                    }
+				</button>
+			</div>
+		</form>
+
+        <!-- @if (loginService.ssoNamesData.length > 0) {
+            <div class="sso-wrapper">
+                <div class="form-divider">
+                    <span>OR</span>
+                </div>
+                <div class="form-group sso-container">
+                    @for (letssoNameData of loginService.ssoNamesData; track ssoNameData.name; let last = $last) {
+                        <button class="btn-submit" type="button" (click)="loginSSO(ssoNameData.name)"
+                            [title]="ssoNameData.description" [disabled]="loginService.submitButtonDisabled"
+                            [class]="{ 'no-margin-bottom': !last }"
+                            [style]="{ 'background-color': ssoNameData.buttonColor }">
+                            @if (!loginService.submitButtonDisabled) {
+                                <span class="main-holder">
+                                    <span class="l-side">
+                                        <i class="fa fa-key sso-icon-fa" *ngIf="ssoNameData.buttonIcon == ''"></i>
+                                        <img class="sso-icon-img" *ngIf="ssoNameData.buttonIcon != ''"
+                                            src="{{ssoNameData.buttonIcon}}">
+                                    </span>
+                                    @if (!loginService.submitButtonDisabled) {
+                                        <span class="r-side">
+                                            {{ssoNameData.buttonText}}
+                                        </span>
+                                    }
+                                </span>
+                            }
+                            @if (loginService.submitButtonDisabled) {
+                                <span>
+                                    <i class="fa fa-spinner fa-spin"></i>
+                                </span>
+                            }
+                        </button>
+                    }
+                </div>
+            </div>
+        } -->
+
+		<div class="policies">
+			<span>meshIQ Configure {{ ProjectInfo.VERSION }}</span>
+			<span>Copyright © 2023 meshIQ</span>
+		</div>
+	</div>
+</div>

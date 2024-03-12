@@ -1,0 +1,127 @@
+/*!
+ * Copyright (c) 1997-2022 Nastel Technologies, Inc. All Rights Reserved.
+ *
+ * This software is the confidential and proprietary information of Nastel
+ * Technologies, Inc. ("Confidential Information").  You shall not disclose
+ * such Confidential Information and shall use it only in accordance with
+ * the terms of the license agreement you entered into with Nastel
+ * Technologies.
+ *
+ * NASTEL MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF
+ * THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+ * PURPOSE, OR NON-INFRINGEMENT. NASTEL SHALL NOT BE LIABLE FOR ANY DAMAGES
+ * SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING
+ * THIS SOFTWARE OR ITS DERIVATIVES.
+ *
+ * CopyrightVersion 1.0
+ */
+
+@import "sso-container.scss";
+
+.form-box-container {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    background-color: #191919;
+
+    .form-box {
+        margin: 0 auto;
+        border: $black-form-input-box-border 1px solid;
+        background: $dark-background;
+        border-radius: 5px;
+        color: $white;
+
+        .logo-div {
+            text-align: center;
+            padding: 30px 0 30px 0;
+
+            .company-logo {
+                width: 254px;
+            }
+        }
+
+        .heading {
+            text-align: center;
+            padding-bottom: 15px;
+            font-size: 10pt;
+            font-weight: bold;
+        }
+
+        .form-input-field {
+            padding: 0px 40px;
+            margin-bottom: 10px;
+            position: relative;
+
+            .input-icon {
+                position: absolute;
+                top: 40px;
+                left: 50px;
+                color: #646464;
+            }
+
+            input {
+                border: 1px solid $black-form-input-box-border;
+                color: $white;
+                height: 40px;
+                background-color: black;
+                padding-left: 30px;
+            }
+        }
+
+        .form-group {
+            padding: 0 40px;
+            display: flex;
+
+            .btn-submit {
+                font-weight: bold;
+                width: 290px;
+                height: 40px;
+                margin: 20px 0;
+                border-width: 0;
+                text-transform: uppercase;
+                border-radius: 5px;
+                cursor: pointer;
+
+                &:not(.disabled) {
+                    color: $dark-background;
+                    background: $grey-1;
+
+                    &:hover {
+                        background-color: $blurred-orange !important;
+                    }
+                }
+            }
+
+        }
+
+        .policies {
+            display: flex;
+            flex-direction: column;
+            border-top: $black-form-input-box-border 1px solid;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 11px;
+            line-height: 15pt;
+            color: $grey-3;
+        }
+
+        .help-block {
+            color: $red-4;
+            font-size: 0.8em;
+            padding: 0 72px;
+            position: absolute;
+            width: 400px;
+            margin-top: -10px;
+            text-align: right;
+        }
+
+        .has-error>input {
+            border-color: $red-4;
+        }
+    }
+}
+
+.no-margin-bottom {
+    margin-bottom: 0 !important;
+}
