@@ -19,7 +19,7 @@ public class DashboardTemplateController {
     @Produces(MediaType.APPLICATION_JSON)
     public static Response getTemplateDashboards() {
         try (final Stream<java.nio.file.Path> entries = Files.list(java.nio.file.Path.of(templatesPath))) {
-            return Response.ok().entity(entries.map(path -> {
+            return Response.ok(entries.map(path -> {
                 try {
                     return DashboardTemplateService.buildTemplate(path.toUri().toURL());
                 } catch (final IOException e) {
